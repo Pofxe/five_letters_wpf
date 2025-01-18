@@ -1,0 +1,187 @@
+﻿<Window x:Class="FiveLetters.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FiveLetters"
+        mc:Ignorable="d"
+        Title="FiveLetters" Height="600" Width="550" Background="Black">
+    <Grid>
+        <!-- Основной Grid с двумя строками -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- Верхняя часть для ячеек -->
+            <RowDefinition Height="Auto"/>
+            <!-- Нижняя часть для клавиатуры -->
+        </Grid.RowDefinitions>
+
+        <!-- 6 рядов по 5 пустых ячеек -->
+        <Grid Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
+            <Grid.Resources>
+                <!-- Стиль для ячеек -->
+                <Style TargetType="Border">
+                    <Setter Property="Width" Value="60"/>
+                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="Violet"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Grid.Resources>
+
+            <!-- Определение строк и столбцов -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Пустые ячейки -->
+            <Border Grid.Row="0" Grid.Column="0" x:Name="Cell00"/>
+            <Border Grid.Row="0" Grid.Column="1" x:Name="Cell01"/>
+            <Border Grid.Row="0" Grid.Column="2" x:Name="Cell02"/>
+            <Border Grid.Row="0" Grid.Column="3" x:Name="Cell03"/>
+            <Border Grid.Row="0" Grid.Column="4" x:Name="Cell04"/>
+
+            <Border Grid.Row="1" Grid.Column="0" x:Name="Cell10"/>
+            <Border Grid.Row="1" Grid.Column="1" x:Name="Cell11"/>
+            <Border Grid.Row="1" Grid.Column="2" x:Name="Cell12"/>
+            <Border Grid.Row="1" Grid.Column="3" x:Name="Cell13"/>
+            <Border Grid.Row="1" Grid.Column="4" x:Name="Cell14"/>
+
+            <Border Grid.Row="2" Grid.Column="0" x:Name="Cell20"/>
+            <Border Grid.Row="2" Grid.Column="1" x:Name="Cell21"/>
+            <Border Grid.Row="2" Grid.Column="2" x:Name="Cell22"/>
+            <Border Grid.Row="2" Grid.Column="3" x:Name="Cell23"/>
+            <Border Grid.Row="2" Grid.Column="4" x:Name="Cell24"/>
+
+            <Border Grid.Row="3" Grid.Column="0" x:Name="Cell30"/>
+            <Border Grid.Row="3" Grid.Column="1" x:Name="Cell31"/>
+            <Border Grid.Row="3" Grid.Column="2" x:Name="Cell32"/>
+            <Border Grid.Row="3" Grid.Column="3" x:Name="Cell33"/>
+            <Border Grid.Row="3" Grid.Column="4" x:Name="Cell34"/>
+
+            <Border Grid.Row="4" Grid.Column="0" x:Name="Cell40"/>
+            <Border Grid.Row="4" Grid.Column="1" x:Name="Cell41"/>
+            <Border Grid.Row="4" Grid.Column="2" x:Name="Cell42"/>
+            <Border Grid.Row="4" Grid.Column="3" x:Name="Cell43"/>
+            <Border Grid.Row="4" Grid.Column="4" x:Name="Cell44"/>
+
+            <Border Grid.Row="5" Grid.Column="0" x:Name="Cell50"/>
+            <Border Grid.Row="5" Grid.Column="1" x:Name="Cell51"/>
+            <Border Grid.Row="5" Grid.Column="2" x:Name="Cell52"/>
+            <Border Grid.Row="5" Grid.Column="3" x:Name="Cell53"/>
+            <Border Grid.Row="5" Grid.Column="4" x:Name="Cell54"/>
+        </Grid>
+
+        <!-- Клавиатура -->
+        <Grid x:Name="KeyboardGrid" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
+            <Grid.Resources>
+                <!-- Стиль для кнопок клавиатуры -->
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="40"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="Margin" Value="2"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="Violet"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="2" CornerRadius="4">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Padding" Value="0"/>
+                    <Style.Triggers>
+                        <!-- Триггер для наведения курсора -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkViolet"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+
+            <!-- Раскладка клавиатуры -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Первый ряд -->
+            <Button Grid.Row="0" Grid.Column="0" Content="Й" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="1" Content="Ц" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="2" Content="У" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="3" Content="К" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="4" Content="Е" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="5" Content="Н" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="6" Content="Г" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="7" Content="Ш" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="8" Content="Щ" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="9" Content="З" Click="Button_Click"/>
+            <Button Grid.Row="0" Grid.Column="10" Content="Ъ" Click="Button_Click"/>
+
+            <!-- Второй ряд -->
+            <Button Grid.Row="1" Grid.Column="0" Content="Ф" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="Ы" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="2" Content="В" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="3" Content="А" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="4" Content="П" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="5" Content="Р" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="6" Content="О" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="7" Content="Л" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="8" Content="Д" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="9" Content="Ж" Click="Button_Click"/>
+            <Button Grid.Row="1" Grid.Column="10" Content="ⓘ" FontSize="27" Click="InfoButton_Click"/>
+
+            <!-- Третий ряд -->
+            <Button Grid.Row="2" Grid.Column="0" Content="Я" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="1" Content="Ч" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="2" Content="С" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="3" Content="М" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="4" Content="И" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="5" Content="Т" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="6" Content="Х" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="7" Content="Б" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="8" Content="Ю" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="9" Content="Э" Click="Button_Click"/>
+            <Button Grid.Row="2" Grid.Column="10" Content="Ь" Click="Button_Click"/>
+
+            <!-- Специальные клавиши -->
+            <Button Grid.Row="3" Grid.Column="0" Name="CheckButton" Content="Проверить" Width="90" Grid.ColumnSpan="2" Click="CheckButton_Click"/>
+            <Button Grid.Row="3" Grid.Column="3" Name="AnewButton" Content="Заново" Width="90" Grid.ColumnSpan="2" Click="ResetButton_Click" IsEnabled="False"/>
+            <Button Grid.Row="3" Grid.Column="6" Name="EraseButton" Content="Стереть" Width="90" Grid.ColumnSpan="2" Click="DeleteCharButton_Click"/>
+            <Button Grid.Row="3" Grid.Column="9" Name="NextButton" Content="Дальше" Width="90" Grid.ColumnSpan="2" Click="NextButton_Click" IsEnabled="False"/>
+        </Grid>
+    </Grid>
+</Window>
